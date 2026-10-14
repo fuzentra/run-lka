@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14T02:48:22+05:30",
+ "updated": "2026-10-14T22:41:42+05:30",
  "events": [
   {
    "id": "galle-rfsl",
@@ -89,18 +89,6 @@
    "src": "Colombo Night Run"
   },
   {
-   "id": "negombo-rfsl",
-   "name": "Run for Sri Lanka – Negombo Half Marathon",
-   "type": "road",
-   "start": "2026-07-12",
-   "city": "Kadolkele Ground, Negombo",
-   "dist": "21.1K · 10K · 5K · 2K",
-   "org": "SingleTree Events",
-   "about": "Flat, out-and-back beachfront course.",
-   "url": "https://worldsmarathons.com/marathon/run-for-sri-lanka-negombo-half-marathon",
-   "src": "World's Marathons"
-  },
-  {
    "id": "iit-gomiles",
    "name": "IIT Road Race 2026 – GoMiles",
    "type": "fun",
@@ -112,6 +100,18 @@
    "about": "University road race themed 'Sports for Humanity', running from the IIT main campus to its city campus.",
    "url": "https://www.iit.ac.lk/?p=5682",
    "src": "IIT"
+  },
+  {
+   "id": "negombo-rfsl",
+   "name": "Run for Sri Lanka – Negombo Half Marathon",
+   "type": "road",
+   "start": "2026-07-12",
+   "city": "Kadolkele Ground, Negombo",
+   "dist": "21.1K · 10K · 5K · 2K",
+   "org": "SingleTree Events",
+   "about": "Flat, out-and-back beachfront course.",
+   "url": "https://worldsmarathons.com/marathon/run-for-sri-lanka-negombo-half-marathon",
+   "src": "World's Marathons"
   },
   {
    "id": "rfh-colombo",
@@ -189,6 +189,18 @@
    "src": "1333.lk"
   },
   {
+   "id": "page-cached-by-litespeed-cache-7-9-1-on",
+   "name": "Page cached by LiteSpeed Cache 7.9.1 on",
+   "type": "fun",
+   "start": "2026-10-14",
+   "city": "See event page",
+   "dist": "See event page",
+   "org": "SingleTree Events",
+   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events"
+  },
+  {
    "id": "run-and-rave",
    "name": "Run & Rave",
    "type": "fun",
@@ -256,20 +268,6 @@
    "reg": "Opening soon"
   },
   {
-   "id": "move-to-protect",
-   "name": "Move to Protect – Run & Walk",
-   "type": "fun",
-   "start": "2026-10-25",
-   "city": "Colombo Racecourse Car Park, Colombo 7",
-   "time": "6:00 AM",
-   "dist": "5K competitive run · 2K non-competitive walk",
-   "fee": "LKR 2,000 per participant",
-   "org": "LEADS (managed by SingleTree Events)",
-   "about": "Children's Day run/walk for LEADS' national movement to protect children from abuse, neglect, violence and exploitation. Open to all ages. Every participant gets an event T-shirt and every finisher an e-certificate. The top three 5K runners win a medal, position certificate and prize, and the first 200 5K finishers get a finisher's medal.",
-   "url": "https://singletreeevents.com/event/move-to-protect-run-walk/",
-   "src": "SingleTree Events / organiser announcement"
-  },
-  {
    "id": "fitrun-wadduwa",
    "name": "FIT RUN by Fit Sunday",
    "type": "fun",
@@ -282,6 +280,20 @@
    "about": "Community fitness run along the coast at Queensbury Lake Resort, with three distances from a 2.5K run/walk up to 10K. Every runner gets an official event T-shirt and a finisher's medal, and winners take home prizes.",
    "url": "https://www.fittmo.com/events/fitrun-by-fitsunday-nestomalt",
    "src": "Fittmo / Fit Sunday Instagram"
+  },
+  {
+   "id": "move-to-protect",
+   "name": "Move to Protect – Run & Walk",
+   "type": "fun",
+   "start": "2026-10-25",
+   "city": "Colombo Racecourse Car Park, Colombo 7",
+   "time": "6:00 AM",
+   "dist": "5K competitive run · 2K non-competitive walk",
+   "fee": "LKR 2,000 per participant",
+   "org": "LEADS (managed by SingleTree Events)",
+   "about": "Children's Day run/walk for LEADS' national movement to protect children from abuse, neglect, violence and exploitation. Open to all ages. Every participant gets an event T-shirt and every finisher an e-certificate. The top three 5K runners win a medal, position certificate and prize, and the first 200 5K finishers get a finisher's medal.",
+   "url": "https://singletreeevents.com/event/move-to-protect-run-walk/",
+   "src": "SingleTree Events / organiser announcement"
   },
   {
    "id": "rfh-galle",
@@ -325,6 +337,18 @@
    "fee": "LKR 3,000 (2K–10K) · LKR 5,000 (21.1K)"
   },
   {
+   "id": "colombo-will-once-again-come-alive-on",
+   "name": "Colombo will once again come alive on",
+   "type": "road",
+   "start": "2026-12-13",
+   "city": "as the",
+   "dist": "21.1K",
+   "org": "Indian Cultural Association",
+   "about": "Listed on ICA International Marathon. Added automatically; check the event page for distances, start time and registration.",
+   "url": "https://icainternationalmarathon.com/",
+   "src": "ICA International Marathon"
+  },
+  {
    "id": "ica-half",
    "name": "ICA International Half Marathon",
    "type": "road",
@@ -352,6 +376,18 @@
    "src": "vforv.org"
   },
   {
+   "id": "making-history-at-galle-face-green-on",
+   "name": "Making History at Galle Face Green! On",
+   "type": "tri",
+   "start": "2027-02-25",
+   "city": "See event page",
+   "dist": "See event page",
+   "org": "SingleTree Events",
+   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events"
+  },
+  {
    "id": "arugam-half",
    "name": "Arugam Bay Half Marathon",
    "type": "road",
@@ -362,22 +398,6 @@
    "about": "Surf-town half marathon on the east coast.",
    "url": "https://worldsmarathons.com/marathon/arugambay-half-marathon",
    "src": "Ahotu / World's Marathons"
-  },
-  {
-   "id": "colombo-night-run",
-   "name": "Colombo Night Run (weekly)",
-   "type": "club",
-   "rec": 4,
-   "from": "2026-01-01",
-   "city": "D.S. Senanayake statue, Independence Square",
-   "time": "Every Thursday, 7:15 PM",
-   "dist": "3K · 5K · 7K+ · walk · speed sessions",
-   "fee": "Free",
-   "org": "Colombo Night Run community",
-   "about": "Free, open, non-profit night running group. All paces welcome.",
-   "url": "https://www.colombonightrun.com/",
-   "src": "colombonightrun.com",
-   "short": "Night Run 7:15pm"
   },
   {
    "id": "colombo-city-running",
@@ -394,6 +414,22 @@
    "url": "https://www.instagram.com/colombocityrunning/?hl=en",
    "src": "Colombo City Running (Instagram)",
    "short": "CCR Sun 5:45am"
+  },
+  {
+   "id": "colombo-night-run",
+   "name": "Colombo Night Run (weekly)",
+   "type": "club",
+   "rec": 4,
+   "from": "2026-01-01",
+   "city": "D.S. Senanayake statue, Independence Square",
+   "time": "Every Thursday, 7:15 PM",
+   "dist": "3K · 5K · 7K+ · walk · speed sessions",
+   "fee": "Free",
+   "org": "Colombo Night Run community",
+   "about": "Free, open, non-profit night running group. All paces welcome.",
+   "url": "https://www.colombonightrun.com/",
+   "src": "colombonightrun.com",
+   "short": "Night Run 7:15pm"
   }
  ]
 }
