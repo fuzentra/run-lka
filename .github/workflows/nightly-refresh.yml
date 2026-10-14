@@ -1,0 +1,80 @@
+name: Nightly calendar refresh
+
+on:
+  schedule:
+    - cron: "15 21 * * *"   # 21:15 UTC = 2:45 AM Sri Lanka time, every night
+  workflow_dispatch: {}      # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths:                   # you edited events by hand -> rebuild and republish
+      - "data/events.json"
+      - "index.html"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: calendar-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Keep a copy of the current page
+        run: cp index.html "$RUNNER_TEMP/index.before.html"
+
+      - name: Scrape sources and update events
+        if: github.event_name != 'push'
+        run: python scripts/refresh.py
+
+      - name: Rebuild page from data/events.json
+        if: github.event_name == 'push'
+        run: python scripts/refresh.py --build-only
+
+      - name: Safety check (restore the old page if anything is wrong)
+        run: |
+          if ! python scripts/check_page.py "$RUNNER_TEMP/index.before.html" index.html; then
+            echo "::warning::Refresh rejected; keeping the previous page"
+            git checkout -- index.html data/events.json
+          fi
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html data/events.json
+            git commit -m "Calendar refresh $(TZ=Asia/Colombo date '+%F %H:%M')"
+            git push
+          fi
+
+      - name: Prepare site files
+        run: |
+          mkdir -p "$RUNNER_TEMP/site"
+          cp index.html "$RUNNER_TEMP/site/index.html"
+          touch "$RUNNER_TEMP/site/.nojekyll"
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+      - id: deploy
+        uses: actions/deploy-pages@v4
