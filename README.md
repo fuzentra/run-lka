@@ -1,8 +1,14 @@
 # Sri Lanka – Run Calendar
 
-Live page: https://fuzentra.github.io/run-lka/
+**Every road race, trail run, triathlon and fun run in Sri Lanka, in one calendar.**
 
-A not-for-profit initiative by fuzentra (Pvt) Ltd. Running events in Sri Lanka, refreshed every night by GitHub Actions. No AI and no API keys are involved.
+**Live site: [fuzentra.github.io/run-lka](https://fuzentra.github.io/run-lka/)**
+
+Run Calendar brings together running events from race listings, organiser websites, news and social media, so runners can find their next start line in one place. Each event shows its date, venue, distances, fees and organiser, with a direct link to register and one-tap add to Google, Outlook or Office 365 calendars. Weekly community runs are listed alongside the races.
+
+The calendar updates itself every night through GitHub Actions. A plain Python scraper collects new events and date changes, and a safety check keeps the previous page live if anything looks wrong. It uses no AI services and no API keys.
+
+A not-for-profit initiative by fuzentra (Pvt) Ltd. Free to use, with no ads and no sign-up.
 
 ## How it works
 - `data/events.json` is the master event list. Edit it by hand any time: add perks, fix details, or add events the scraper missed. Saving it rebuilds and republishes the page automatically.
