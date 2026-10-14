@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14T22:41:42+05:30",
+ "updated": "2026-10-15T05:26:03+05:30",
  "events": [
   {
    "id": "galle-rfsl",
@@ -350,6 +350,18 @@
    "about": "Year-end Colombo edition of the Run for Hope charity series.",
    "url": "https://vforv.org/event-registration/?event=RFH-2026-CD",
    "src": "vforv.org"
+  },
+  {
+   "id": "your-event-our-platform-lets-make-it-happen",
+   "name": "Your Event. Our Platform. Let’s Make It Happen.",
+   "type": "tri",
+   "start": "2027-02-25",
+   "city": "See event page",
+   "dist": "See event page",
+   "org": "SingleTree Events",
+   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events"
   },
   {
    "id": "arugam-half",
