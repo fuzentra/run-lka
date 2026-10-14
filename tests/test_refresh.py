@@ -127,6 +127,17 @@ def test_guessers():
     assert R.clean_url("https://a.lk/x?utm_source=fb&id=3&fbclid=Z#top") == "https://a.lk/x?id=3"
 
 
+def test_ignores_comments_and_sentence_fragments():
+    html = """<p>Colombo will once again come alive on 13 December 2026 as the city runs.</p>
+    <p>Making History at Galle Face Green! On 25 Feb 2027 we race.</p>
+    <!-- Page cached by LiteSpeed Cache 7.9.1 on 2026-10-14 22:41:00 -->"""
+    assert run(html) == []
+    for t in ("Colombo will once again come alive on", "Making History at Galle Face Green! On", "Race held at"):
+        assert not R.looks_like_title({"text": t})
+    assert R.looks_like_title({"text": "Run for Hope – Galle"})
+    assert R.looks_like_title({"text": "Run for Sri Lanka – Kandy Half Marathon"})
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

@@ -361,11 +361,13 @@ BLOCK_TAGS = {"p", "div", "li", "h1", "h2", "h3", "h4", "h5", "h6", "section", "
 def page_lines(soup, page_url: str) -> list[dict]:
     """Flatten the page into text lines, remembering link targets and headings."""
     from bs4 import NavigableString
+    from bs4.element import PreformattedString
     for t in soup(["script", "style", "noscript", "svg", "template", "iframe", "head"]):
         t.decompose()
     lines: list[dict] = []
     for s in soup.find_all(string=True):
-        if not isinstance(s, NavigableString):
+        # Skip HTML comments, doctypes and CDATA (e.g. "<!-- Page cached by LiteSpeed Cache ... on 2026-10-14 -->").
+        if not isinstance(s, NavigableString) or isinstance(s, PreformattedString):
             continue
         text = clean(s)
         if not text:
@@ -385,8 +387,14 @@ def page_lines(soup, page_url: str) -> list[dict]:
     return lines
 
 
+# A title never ends mid-sentence: "Colombo will once again come alive on", "Making History at Galle Face Green! On".
+DANGLING = re.compile(r"\b(on|at|in|from|by|to|until|till|of|for|and|the|a|is|are|was|will|be|held|starting|scheduled|date[ds]?)$", re.I)
+
+
 def looks_like_title(line: dict) -> bool:
     t = line["text"]
+    if DANGLING.search(t.rstrip(" .,:;!-–—")):
+        return False
     if len(t) < 4 or len(t) > 110 or not re.search(r"[A-Za-z]{3}", t):
         return False
     if GENERIC.match(t) or PRICE_OR_COUNT.match(t) or TIME_RE.fullmatch(t):

@@ -189,18 +189,6 @@
    "src": "1333.lk"
   },
   {
-   "id": "page-cached-by-litespeed-cache-7-9-1-on",
-   "name": "Page cached by LiteSpeed Cache 7.9.1 on",
-   "type": "fun",
-   "start": "2026-10-14",
-   "city": "See event page",
-   "dist": "See event page",
-   "org": "SingleTree Events",
-   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://singletreeevents.com/",
-   "src": "SingleTree Events"
-  },
-  {
    "id": "run-and-rave",
    "name": "Run & Rave",
    "type": "fun",
@@ -337,18 +325,6 @@
    "fee": "LKR 3,000 (2K–10K) · LKR 5,000 (21.1K)"
   },
   {
-   "id": "colombo-will-once-again-come-alive-on",
-   "name": "Colombo will once again come alive on",
-   "type": "road",
-   "start": "2026-12-13",
-   "city": "as the",
-   "dist": "21.1K",
-   "org": "Indian Cultural Association",
-   "about": "Listed on ICA International Marathon. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://icainternationalmarathon.com/",
-   "src": "ICA International Marathon"
-  },
-  {
    "id": "ica-half",
    "name": "ICA International Half Marathon",
    "type": "road",
@@ -374,18 +350,6 @@
    "about": "Year-end Colombo edition of the Run for Hope charity series.",
    "url": "https://vforv.org/event-registration/?event=RFH-2026-CD",
    "src": "vforv.org"
-  },
-  {
-   "id": "making-history-at-galle-face-green-on",
-   "name": "Making History at Galle Face Green! On",
-   "type": "tri",
-   "start": "2027-02-25",
-   "city": "See event page",
-   "dist": "See event page",
-   "org": "SingleTree Events",
-   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://singletreeevents.com/",
-   "src": "SingleTree Events"
   },
   {
    "id": "arugam-half",
