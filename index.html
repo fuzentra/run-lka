@@ -78,12 +78,18 @@ h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font
 .dn{font-variant-numeric:tabular-nums;font-weight:600;font-size:.85rem}
 .day.today .dn{background:var(--today);color:var(--bib-ink);border-radius:3px;padding:0 5px;align-self:flex-start}
 .ev{font:inherit;text-align:left;border:0;border-left:3px solid var(--c);background:var(--cb);color:var(--fg);font-size:.75rem;line-height:1.2;padding:2px 5px;border-radius:2px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-.ev.past{opacity:.55}
+.ev.past{opacity:.5;filter:grayscale(1)}
 .ev.rec{font-size:.72rem;color:var(--muted)}
 
 .agenda{display:grid;gap:6px;margin:0;padding:0;list-style:none}
 .agenda button{font:inherit;color:inherit;width:100%;display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;text-align:left;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:4px;padding:7px 12px;cursor:pointer}
 .agenda button:hover{border-color:var(--c)}
+.agenda button.done{background:var(--bg);border-left-color:var(--past);color:var(--muted)}
+.agenda button.done:hover{border-color:var(--past)}
+.agenda button.done .adate,.agenda button.done .at b{color:var(--muted)}
+.agenda button.done .at span{color:var(--past)}
+.pill.done{background:var(--line);color:var(--muted)}
+.agenda li.wk .at b{font-weight:600}
 .adate{font-family:var(--display);font-weight:800;font-size:1.4rem;line-height:.9;text-transform:uppercase;font-variant-numeric:tabular-nums}
 .adate small{display:block;font-size:.8rem;letter-spacing:.1em;color:var(--muted);font-weight:700}
 .at{min-width:0}.at b{display:block}.at span{color:var(--muted);font-size:.9rem}
@@ -697,31 +703,39 @@ function renderCal(){
     const d=new Date(start); d.setDate(start.getDate()+i);
     const evs=EVENTS.filter(e=>active.has(e.type)&&onDay(e,d)).sort((a,b)=>((a.rec!==undefined)?1:0)-((b.rec!==undefined)?1:0));
     const cls=["day",d.getMonth()!==m?"out":"",+d===+TODAY?"today":""].join(" ");
-    h+=`<div class="${cls}"><span class="dn">${d.getDate()}</span>${evs.map(e=>`<button class="ev ${(e.rec!==undefined)?"rec":""} ${d<TODAY?"past":""}" data-id="${e.id}" style="${col(e.type)}" title="${esc(e.name)}" aria-label="${esc(e.name)}, ${fmt(d)}">${esc((e.rec!==undefined)?(e.short||e.name):e.name)}</button>`).join("")}</div>`;
+    h+=`<div class="${cls}"><span class="dn">${d.getDate()}</span>${evs.map(e=>`<button class="ev ${(e.rec!==undefined)?"rec":""} ${d<TODAY?"past":""}" data-id="${e.id}" data-d="${+d}" style="${col(e.type)}" title="${esc(e.name)}" aria-label="${esc(e.name)}, ${fmt(d)}">${esc((e.rec!==undefined)?(e.short||e.name):e.name)}</button>`).join("")}</div>`;
   }
   const g=document.getElementById("grid"); g.innerHTML=h;
-  g.querySelectorAll(".ev").forEach(b=>b.onclick=()=>openSheet(b.dataset.id));
+  g.querySelectorAll(".ev").forEach(b=>b.onclick=()=>openSheet(b.dataset.id,new Date(+b.dataset.d)));
   // agenda
   const mStart=new Date(y,m,1), mEnd=new Date(y,m+1,0);
-  const list=EVENTS.filter(e=>active.has(e.type)&&((e.rec!==undefined)?D(e.from)<=mEnd:(D(e.start)<=mEnd&&(e.end?D(e.end):D(e.start))>=mStart)))
-    .sort((a,b)=>((a.rec!==undefined)?99:D(a.start).getTime())-((b.rec!==undefined)?99:D(b.start).getTime())).sort((a,b)=>((a.rec!==undefined)?1:0)-((b.rec!==undefined)?1:0));
-  document.getElementById("listH").textContent=`${MONF[m]} ${y} · ${list.length} event${list.length===1?"":"s"}`;
+  // One row per one-off event, plus one row for every date a weekly run happens this month.
+  const list=[];
+  EVENTS.filter(e=>active.has(e.type)).forEach(e=>{
+    if(e.rec!==undefined){
+      for(let d=new Date(mStart);d<=mEnd;d.setDate(d.getDate()+1)) if(onDay(e,d)) list.push({e,d:new Date(d),wk:true});
+    }else if(D(e.start)<=mEnd&&(e.end?D(e.end):D(e.start))>=mStart) list.push({e,d:D(e.start),wk:false});
+  });
+  list.sort((a,b)=>a.d-b.d||a.wk-b.wk);
+  const nOne=list.filter(x=>!x.wk).length, nWk=list.length-nOne;
+  document.getElementById("listH").textContent=`${MONF[m]} ${y} · ${nOne} event${nOne===1?"":"s"}${nWk?` + ${nWk} weekly run${nWk===1?"":"s"}`:""}`;
   const a=document.getElementById("agenda");
-  a.innerHTML=list.length?list.map(e=>{
-    const sd=(e.rec!==undefined)?null:D(e.start);
-    const top=e.rec!==undefined?`<small>EVERY</small>${["SUN","MON","TUE","WED","THU","FRI","SAT"][e.rec]}`:`<small>${MON[sd.getMonth()].toUpperCase()}</small>${sd.getDate()}${e.end?"+":""}`;
-    return `<li><button data-id="${e.id}" style="${col(e.type)}"><span class="adate">${top}</span><span class="at"><b>${esc(e.name)}</b><span>${esc(e.city)} · ${esc(e.dist)}</span></span>${(()=>{const done=sd&&sd<TODAY&&!(e.end&&D(e.end)>=TODAY);return `<span class="pill${done?" done":""}">${done?"Finished":TYPES[e.type].label}</span>`})()}</button></li>`}).join("")
+  a.innerHTML=list.length?list.map(({e,d,wk})=>{
+    const last=wk?d:(e.end?D(e.end):d), done=last<TODAY;
+    const top=`<small>${MON[d.getMonth()].toUpperCase()}</small>${d.getDate()}${e.end?"+":""}`;
+    const sub=wk?`${esc(e.time.replace(/^Every \w+,\s*/i,""))} · ${esc(e.city)}`:`${esc(e.city)} · ${esc(e.dist)}`;
+    return `<li${wk?' class="wk"':""}><button class="${done?"done":""}" data-id="${e.id}" data-d="${+d}" style="${col(e.type)}"><span class="adate">${top}</span><span class="at"><b>${esc(e.name)}</b><span>${sub}</span></span><span class="pill${done?" done":""}">${done?"Finished":TYPES[e.type].label}</span></button></li>`}).join("")
     :`<li><p class="empty">No events listed for ${MONF[m]} yet. Use the arrows to browse other months.</p></li>`;
-  a.querySelectorAll("button").forEach(b=>b.onclick=()=>openSheet(b.dataset.id));
+  a.querySelectorAll("button").forEach(b=>b.onclick=()=>openSheet(b.dataset.id,new Date(+b.dataset.d)));
 }
 
 const dlg=document.getElementById("dlg");
-function openSheet(id){
+function openSheet(id,day){
   const e=EVENTS.find(x=>x.id===id);
   const s=document.getElementById("sheet"); s.setAttribute("style",col(e.type));
   s.innerHTML=`<span class="pill" style="justify-self:start">${TYPES[e.type].label}</span>
    <h3>${esc(e.name)}</h3>
-   <dl class="facts"><dt>When</dt><dd>${esc(dateText(e))}${e.time&&!(e.rec!==undefined)?"<br><span class='src'>"+esc(e.time)+"</span>":""}</dd>
+   <dl class="facts"><dt>When</dt><dd>${e.rec!==undefined&&day?esc(fmt(day))+"<br><span class='src'>"+esc(e.time)+"</span>":esc(dateText(e))}${e.time&&!(e.rec!==undefined)?"<br><span class='src'>"+esc(e.time)+"</span>":""}</dd>
    <dt>Where</dt><dd>${esc(e.city)}</dd><dt>Distances</dt><dd>${esc(e.dist)}</dd><dt>Organiser</dt><dd>${esc(e.org)}</dd>
    ${e.fee?`<dt>Entry fee</dt><dd>${esc(e.fee)}</dd>`:""}${e.reg?`<dt>Entries</dt><dd>${esc(e.reg)}</dd>`:""}</dl>
    <p>${esc(e.about)}</p>
