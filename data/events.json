@@ -377,18 +377,6 @@
    "time": "6:00 AM"
   },
   {
-   "id": "your-event-our-platform-lets-make-it-happen",
-   "name": "Your Event. Our Platform. Let’s Make It Happen.",
-   "type": "tri",
-   "start": "2027-02-25",
-   "city": "See event page",
-   "dist": "See event page",
-   "org": "SingleTree Events",
-   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://singletreeevents.com/",
-   "src": "SingleTree Events"
-  },
-  {
    "id": "arugam-half",
    "name": "Arugam Bay Half Marathon",
    "type": "road",

@@ -138,6 +138,13 @@ def test_ignores_comments_and_sentence_fragments():
     assert R.looks_like_title({"text": "Run for Sri Lanka – Kandy Half Marathon"})
 
 
+def test_running_only_drops_unlinked_slogans():
+    html = """<section><h2>Your Event. Our Platform. Let's Make It Happen.</h2><p>25 Feb 2027</p></section>
+    <section><h2>Kandy Half Marathon</h2><p>6 Dec 2026</p></section>"""
+    names = [c.name for c in run(html)]
+    assert names == ["Kandy Half Marathon"], names
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

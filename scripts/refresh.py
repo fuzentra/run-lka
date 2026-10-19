@@ -46,7 +46,6 @@ SOURCES = [
     {"src": "Colombo Night Run", "url": "https://www.colombonightrun.com/", "running_only": True},
     {"src": "Colombo Night Run", "url": "https://www.colombonightrun.com/events-1", "running_only": True},
     {"src": "SingleTree Events", "url": "https://singletreeevents.com/", "running_only": True, "org": "SingleTree Events"},
-    {"src": "SingleTree Events", "url": "https://singletreeevents.com/events/", "running_only": True, "org": "SingleTree Events"},
     {"src": "vforv.org", "url": "https://vforv.org/", "running_only": True, "org": "Voice Foundation (vforv)"},
     {"src": "Fittmo", "url": "https://www.fittmo.com/events", "running_only": False},
     {"src": "1333.lk", "url": "https://www.1333.lk/events", "running_only": False, "org": "CCCline 1333 (CCC Foundation)"},
@@ -266,7 +265,10 @@ def is_running(c: Candidate, running_only: bool) -> bool:
     if NOT_RUNNING.search(c.name):
         return False
     if running_only:
-        return True
+        # Even on a running-only site, a line with no event link of its own and no running word in its
+        # name is page furniture (e.g. SingleTree's "Your Event. Our Platform. Let's Make It Happen.").
+        own_link = bool(c.page_url) and url_key(c.url) != url_key(c.page_url)
+        return own_link or bool(RUN_WORDS.search(c.name))
     return bool(RUN_WORDS.search(blob)) and not NOT_RUNNING.search(c.name)
 
 
