@@ -350,45 +350,6 @@
    "fee": "LKR 3,000 (2K–10K) · LKR 5,000 (21.1K)"
   },
   {
-   "id": "challengers-run-10km",
-   "name": "Challengers Run 10KM",
-   "type": "fun",
-   "start": "2026-12-13",
-   "city": "Galle Face Green, Colombo",
-   "time": "6:00 AM",
-   "dist": "10K",
-   "org": "Indian Cultural Association",
-   "about": "Listed on ICA International Marathon. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://icainternationalmarathon.com/",
-   "src": "ICA International Marathon"
-  },
-  {
-   "id": "family-run-5km",
-   "name": "Family Run 5KM",
-   "type": "fun",
-   "start": "2026-12-13",
-   "city": "Galle Face Green, Colombo",
-   "time": "6:00 AM",
-   "dist": "5K",
-   "org": "Indian Cultural Association",
-   "about": "Listed on ICA International Marathon. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://icainternationalmarathon.com/",
-   "src": "ICA International Marathon"
-  },
-  {
-   "id": "fun-run-2km",
-   "name": "Fun Run 2KM",
-   "type": "fun",
-   "start": "2026-12-13",
-   "city": "Galle Face Green, Colombo",
-   "time": "6:00 AM",
-   "dist": "2K",
-   "org": "Indian Cultural Association",
-   "about": "Listed on ICA International Marathon. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://icainternationalmarathon.com/",
-   "src": "ICA International Marathon"
-  },
-  {
    "id": "ica-half",
    "name": "ICA International Half Marathon",
    "type": "road",
@@ -417,10 +378,10 @@
   },
   {
    "id": "paws-tails",
-   "name": "Paws & Tails –...",
+   "name": "Paws & Tails – Run for Animal Welfare",
    "type": "fun",
    "start": "2026-12-20",
-   "city": "The Wonder Woman Run –...",
+   "city": "See event page",
    "dist": "See event page",
    "org": "SingleTree Events",
    "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
@@ -442,35 +403,23 @@
    "time": "6:00 AM"
   },
   {
-   "id": "colombo-second",
-   "name": "Colombo – Second...",
-   "type": "fun",
-   "start": "2027-02-07",
-   "city": "Ella – First Edition |...",
-   "dist": "See event page",
-   "org": "SingleTree Events",
-   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
-   "url": "https://singletreeevents.com/event/colombo-second-edition-run-for-sri-lanka-5th-event-of-2027/",
-   "src": "SingleTree Events"
-  },
-  {
    "id": "ella-first-edition",
-   "name": "Ella – First Edition |...",
-   "type": "fun",
+   "name": "Ella Train Run",
+   "type": "road",
    "start": "2027-02-21",
-   "city": "Galle – Second Edition...",
-   "dist": "See event page",
+   "city": "Ella",
+   "dist": "10K · 5K · 2K",
    "org": "SingleTree Events",
-   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
+   "about": "First edition of a hill-country run in Ella, with views of the railway and tea country. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
    "url": "https://singletreeevents.com/event/ella-first-edition-run-for-sri-lanka-4th-event-of-2027/",
-   "src": "SingleTree Events"
+   "src": "SingleTree Events (Facebook poster)"
   },
   {
    "id": "the-wonder-woman-run",
-   "name": "The Wonder Woman Run –...",
+   "name": "The Wonder Woman Run – Colombo 2027",
    "type": "fun",
    "start": "2027-03-07",
-   "city": "Colombo – Second...",
+   "city": "Colombo (venue: see event page)",
    "dist": "See event page",
    "org": "SingleTree Events",
    "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
@@ -534,6 +483,55 @@
    "url": "https://www.colombonightrun.com/",
    "src": "colombonightrun.com",
    "short": "Night Run 7:15pm"
+  },
+  {
+   "id": "bentota-beach-run-2027",
+   "name": "Bentota Beach Run",
+   "type": "road",
+   "start": "2027-01-10",
+   "city": "Bentota",
+   "dist": "21.1K · 10K · 5K · 2K",
+   "org": "SingleTree Events",
+   "about": "Half marathon and shorter runs along the Bentota coast. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events (Facebook poster)"
+  },
+  {
+   "id": "weligama-surf-run-2027",
+   "name": "Weligama Surf Run",
+   "type": "road",
+   "start": "2027-01-31",
+   "city": "Weligama",
+   "dist": "10K · 5K · 2K",
+   "org": "SingleTree Events",
+   "about": "Beachside run in Sri Lanka's surf town. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events (Facebook poster)"
+  },
+  {
+   "id": "galle-half-2027",
+   "name": "Galle Half Marathon 2027",
+   "type": "road",
+   "start": "2027-02-07",
+   "city": "Galle",
+   "dist": "21.1K · 10K · 5K · 2K",
+   "org": "SingleTree Events",
+   "about": "Half marathon and shorter runs around Galle. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events (Facebook poster)"
+  },
+  {
+   "id": "raid-amazones-2026",
+   "name": "Raid Amazones Sri Lanka 2026",
+   "type": "trail",
+   "start": "2026-11-02",
+   "end": "2026-11-10",
+   "city": "Kalutara",
+   "dist": "Multi-day team adventure challenge",
+   "org": "Raid Amazones",
+   "about": "International women-only adventure challenge bringing more than 250 women from around the world to Kalutara, combining physical challenges, teamwork and exploration. Places are booked through the organiser, so check before planning to take part.",
+   "url": "https://serendibnews.net/articles/raid-amazones-returns-to-sri-lanka-with-250-international-women-for-adventure-9aivqA",
+   "src": "Serendib News"
   }
  ]
 }

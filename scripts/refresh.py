@@ -393,9 +393,14 @@ def page_lines(soup, page_url: str) -> list[dict]:
 DANGLING = re.compile(r"\b(on|at|in|from|by|to|until|till|of|for|and|the|a|is|are|was|will|be|held|starting|scheduled|date[ds]?)$", re.I)
 
 
+TRUNCATED = re.compile(r"(\.\.\.|…)\s*$")
+
+
 def looks_like_title(line: dict) -> bool:
     t = line["text"]
     if DANGLING.search(t.rstrip(" .,:;!-–—")):
+        return False
+    if TRUNCATED.search(t):  # cut-off card titles such as "Colombo – Second..." are not usable names
         return False
     if len(t) < 4 or len(t) > 110 or not re.search(r"[A-Za-z]{3}", t):
         return False
@@ -473,7 +478,7 @@ def text_candidates(soup, source: dict, page_url: str, today: dt.date) -> list[C
         for ln in lines[i + 1: i + 4]:
             t = ln["text"]
             if (ln["heading"] or GENERIC.match(t) or PRICE_OR_COUNT.match(t) or TIME_RE.match(t)
-                    or find_dates(t, today) or len(t) > 90 or "raised" in t.lower()):
+                    or find_dates(t, today) or len(t) > 90 or "raised" in t.lower() or TRUNCATED.search(t)):
                 continue
             if ln is lines[ti]:
                 break
@@ -534,6 +539,10 @@ def scrape(source: dict, today: dt.date) -> list[Candidate]:
 PLACEHOLDER = re.compile(r"^(see (event page|sign-up form)|to be announced|tba|venue to be announced)$", re.I)
 
 
+def site(url: str) -> str:
+    return urlsplit(url).netloc.lower().removeprefix("www.")
+
+
 def find_match(c: Candidate, events: list[dict]):
     best, best_score, how = None, 0.0, ""
     for e in events:
@@ -580,6 +589,12 @@ def merge(events: list[dict], cands: list[Candidate], today: dt.date, report: Re
                 changes.append(f"fee → {c.fee}")
             if changes:
                 report.changed.append(f"{e['name']}: " + "; ".join(changes) + f" (source: {c.src})")
+            continue
+
+        # A line with no event link of its own, on the same day as an event already listed from the same
+        # site, is one of that event's categories (e.g. ICA's "Family Run 5KM"), not a new event.
+        if url_key(c.url) == url_key(c.page_url) and any(
+                e.get("start") == c.start.isoformat() and site(e.get("url", "")) == site(c.url) for e in events):
             continue
 
         # New event

@@ -145,6 +145,27 @@ def test_running_only_drops_unlinked_slogans():
     assert names == ["Kandy Half Marathon"], names
 
 
+def test_truncated_titles_and_venues_are_ignored():
+    for t in ("Colombo – Second...", "Ella – First Edition |...", "Paws & Tails –…"):
+        assert not R.looks_like_title({"text": t}), t
+    html = """<div><h3><a href="/event/paws">Paws & Tails –...</a></h3><p>20 Dec 2026</p></div>
+    <div><h3><a href="/event/kandy">Kandy Half Marathon</a></h3><p>6 Dec 2026</p><p>Gatabe Grounds, Kandy</p></div>"""
+    names = [c.name for c in run(html)]
+    assert names == ["Kandy Half Marathon"], names
+
+
+def test_categories_of_a_listed_event_are_not_added():
+    events = [{"id": "ica-half", "name": "ICA International Half Marathon", "type": "road", "start": "2026-12-13",
+               "city": "Galle Face Green", "dist": "21.1K · 10K · 5K · 2K", "org": "ICA", "about": "x",
+               "url": "https://icainternationalmarathon.com/registration-2026", "src": "Official site"}]
+    page = "https://icainternationalmarathon.com/"
+    cands = [R.Candidate(name="Family Run 5KM", start=dt.date(2026, 12, 13), src="ICA", url=page, page_url=page),
+             R.Candidate(name="Colombo Kids Dash", start=dt.date(2027, 1, 9), src="ICA", url=page, page_url=page)]
+    rep = R.Report()
+    R.merge(events, cands, TODAY, rep)
+    assert [e["name"] for e in events] == ["ICA International Half Marathon", "Colombo Kids Dash"], events
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):
