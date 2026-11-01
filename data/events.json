@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-31T06:18:38+05:30",
+ "updated": "2026-11-01T05:42:28+05:30",
  "events": [
   {
    "id": "galle-rfsl",
@@ -283,6 +283,19 @@
    "src": "vforv.org"
   },
   {
+   "id": "raid-amazones-2026",
+   "name": "Raid Amazones Sri Lanka 2026",
+   "type": "trail",
+   "start": "2026-11-02",
+   "end": "2026-11-10",
+   "city": "Kalutara",
+   "dist": "Multi-day team adventure challenge",
+   "org": "Raid Amazones",
+   "about": "International women-only adventure challenge bringing more than 250 women from around the world to Kalutara, combining physical challenges, teamwork and exploration. Places are booked through the organiser, so check before planning to take part.",
+   "url": "https://serendibnews.net/articles/raid-amazones-returns-to-sri-lanka-with-250-international-women-for-adventure-9aivqA",
+   "src": "Serendib News"
+  },
+  {
    "id": "move-to-protect",
    "name": "Move to Protect – Run & Walk",
    "type": "fun",
@@ -390,6 +403,18 @@
    "time": "4:00 PM"
   },
   {
+   "id": "bentota-beach-run-2027",
+   "name": "Bentota Beach Run",
+   "type": "road",
+   "start": "2027-01-10",
+   "city": "Bentota",
+   "dist": "21.1K · 10K · 5K · 2K",
+   "org": "SingleTree Events",
+   "about": "Half marathon and shorter runs along the Bentota coast. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events (Facebook poster)"
+  },
+  {
    "id": "run-for-her-run-for-water",
    "name": "Run for Her - Run for Water",
    "type": "fun",
@@ -401,6 +426,30 @@
    "url": "https://docs.google.com/forms/d/e/1FAIpQLSekOjbOMExw42phCgFW0QjpuRwlrYScT1OGc3pgdxRjjhRLZA/viewform",
    "src": "Colombo Night Run",
    "time": "6:00 AM"
+  },
+  {
+   "id": "weligama-surf-run-2027",
+   "name": "Weligama Surf Run",
+   "type": "road",
+   "start": "2027-01-31",
+   "city": "Weligama",
+   "dist": "10K · 5K · 2K",
+   "org": "SingleTree Events",
+   "about": "Beachside run in Sri Lanka's surf town. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events (Facebook poster)"
+  },
+  {
+   "id": "galle-half-2027",
+   "name": "Galle Half Marathon 2027",
+   "type": "road",
+   "start": "2027-02-07",
+   "city": "Galle",
+   "dist": "21.1K · 10K · 5K · 2K",
+   "org": "SingleTree Events",
+   "about": "Half marathon and shorter runs around Galle. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
+   "url": "https://singletreeevents.com/",
+   "src": "SingleTree Events (Facebook poster)"
   },
   {
    "id": "ella-first-edition",
@@ -483,55 +532,6 @@
    "url": "https://www.colombonightrun.com/",
    "src": "colombonightrun.com",
    "short": "Night Run 7:15pm"
-  },
-  {
-   "id": "bentota-beach-run-2027",
-   "name": "Bentota Beach Run",
-   "type": "road",
-   "start": "2027-01-10",
-   "city": "Bentota",
-   "dist": "21.1K · 10K · 5K · 2K",
-   "org": "SingleTree Events",
-   "about": "Half marathon and shorter runs along the Bentota coast. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
-   "url": "https://singletreeevents.com/",
-   "src": "SingleTree Events (Facebook poster)"
-  },
-  {
-   "id": "weligama-surf-run-2027",
-   "name": "Weligama Surf Run",
-   "type": "road",
-   "start": "2027-01-31",
-   "city": "Weligama",
-   "dist": "10K · 5K · 2K",
-   "org": "SingleTree Events",
-   "about": "Beachside run in Sri Lanka's surf town. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
-   "url": "https://singletreeevents.com/",
-   "src": "SingleTree Events (Facebook poster)"
-  },
-  {
-   "id": "galle-half-2027",
-   "name": "Galle Half Marathon 2027",
-   "type": "road",
-   "start": "2027-02-07",
-   "city": "Galle",
-   "dist": "21.1K · 10K · 5K · 2K",
-   "org": "SingleTree Events",
-   "about": "Half marathon and shorter runs around Galle. Part of the Nestomalt Run for Sri Lanka Half Marathon League, organised by SingleTree Events. Every finisher gets a medal, and all runners get an event T-shirt, cap, string bag and snack pack, with prizes for winners.",
-   "url": "https://singletreeevents.com/",
-   "src": "SingleTree Events (Facebook poster)"
-  },
-  {
-   "id": "raid-amazones-2026",
-   "name": "Raid Amazones Sri Lanka 2026",
-   "type": "trail",
-   "start": "2026-11-02",
-   "end": "2026-11-10",
-   "city": "Kalutara",
-   "dist": "Multi-day team adventure challenge",
-   "org": "Raid Amazones",
-   "about": "International women-only adventure challenge bringing more than 250 women from around the world to Kalutara, combining physical challenges, teamwork and exploration. Places are booked through the organiser, so check before planning to take part.",
-   "url": "https://serendibnews.net/articles/raid-amazones-returns-to-sri-lanka-with-250-international-women-for-adventure-9aivqA",
-   "src": "Serendib News"
   }
  ]
 }
