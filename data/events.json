@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T05:42:28+05:30",
+ "updated": "2026-11-02T06:16:14+05:30",
  "events": [
   {
    "id": "galle-rfsl",
@@ -394,7 +394,7 @@
    "name": "Paws & Tails – Run for Animal Welfare",
    "type": "fun",
    "start": "2026-12-20",
-   "city": "See event page",
+   "city": "Colombo",
    "dist": "See event page",
    "org": "SingleTree Events",
    "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
@@ -440,6 +440,19 @@
    "src": "SingleTree Events (Facebook poster)"
   },
   {
+   "id": "colombo-second-edition-run-for-sri-lanka-5th-event-of-2027",
+   "name": "Colombo – Second Edition | Run for Sri Lanka 5th event of 2027",
+   "type": "fun",
+   "start": "2027-02-07",
+   "city": "Colombo",
+   "time": "6:00 AM",
+   "dist": "See event page",
+   "org": "SingleTree Events",
+   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
+   "url": "https://singletreeevents.com/event/colombo-second-edition-run-for-sri-lanka-5th-event-of-2027/ ",
+   "src": "SingleTree Events"
+  },
+  {
    "id": "galle-half-2027",
    "name": "Galle Half Marathon 2027",
    "type": "road",
@@ -464,6 +477,31 @@
    "src": "SingleTree Events (Facebook poster)"
   },
   {
+   "id": "ella-first-edition-run-for-sri-lanka-4th-event-of-2027",
+   "name": "Ella – First Edition | Run for Sri Lanka 4th event of 2027",
+   "type": "fun",
+   "start": "2027-02-21",
+   "city": "Ella",
+   "time": "6:00 AM",
+   "dist": "See event page",
+   "org": "SingleTree Events",
+   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
+   "url": "https://singletreeevents.com/event/ella-first-edition-run-for-sri-lanka-4th-event-of-2027/ ",
+   "src": "SingleTree Events"
+  },
+  {
+   "id": "festival",
+   "name": "Festival",
+   "type": "fun",
+   "start": "2027-02-21",
+   "city": "See event page",
+   "dist": "See event page",
+   "org": "SingleTree Events",
+   "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
+   "url": "https://singletreeevents.com/event_cat/festival/?status=upcoming",
+   "src": "SingleTree Events"
+  },
+  {
    "id": "the-wonder-woman-run",
    "name": "The Wonder Woman Run – Colombo 2027",
    "type": "fun",
@@ -473,7 +511,8 @@
    "org": "SingleTree Events",
    "about": "Listed on SingleTree Events. Added automatically; check the event page for distances, start time and registration.",
    "url": "https://singletreeevents.com/event/the-wonder-woman-run-colombo-2027/",
-   "src": "SingleTree Events"
+   "src": "SingleTree Events",
+   "time": "6:00 AM"
   },
   {
    "id": "colombo-night-run-2027",
